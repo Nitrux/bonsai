@@ -39,6 +39,7 @@ DEBIAN_FRONTEND=noninteractive apt -qq update
 ### Bonsai needs ECM > 5.70
 
 DEBIAN_FRONTEND=noninteractive apt -qq -yy install --no-install-recommends \
+	libgit2-dev \
 	libkf5config-dev \
 	libkf5coreaddons-dev \
 	libkf5i18n-dev \
