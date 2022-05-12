@@ -48,7 +48,7 @@ DEBIAN_FRONTEND=noninteractive apt -qq -yy install --no-install-recommends \
 	mauikit-git \
 	mauikit-filebrowsing-git \
 	qtbase5-dev \
-	qtdeclarative5-dev \	
+	qtdeclarative5-dev \
 	qtwayland5 \
 	qtwayland5-dev-tools \
 	qtwayland5-private-dev \
