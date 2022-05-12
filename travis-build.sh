@@ -85,7 +85,7 @@ make
 ### DO NOT USE debuild, screw it
 
 >> description-pak printf "%s\n" \
-	'Git repository manager.' \
+	'MauiKit Git repository manager.' \
 	'' \
 	'Bonsai is a Git repository manager.' \
 	'' \
