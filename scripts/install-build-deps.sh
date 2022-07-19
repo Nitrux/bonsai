@@ -65,8 +65,6 @@ $APT_COMMAND install -qy --no-install-recommends \
     qtquickcontrols2-5-dev \
     libgit2-dev \
     libwayland-dev \
-    mauikit-git \
-    mauikit-filebrowsing-git \
     qtwayland5 \
     qtwayland5-dev-tools \
     qtwayland5-private-dev \
