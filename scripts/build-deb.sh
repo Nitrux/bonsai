@@ -27,7 +27,7 @@ DEBIAN_FRONTEND=noninteractive apt -qq -yy install --no-install-recommends \
 
 ### Download Source
 
-git clone --depth 1 --branch $MAUIKIT_BRANCH https://invent.kde.org/maui/bonsai.git
+git clone --depth 1 --branch $BONSAI_BRANCH https://invent.kde.org/maui/bonsai.git
 
 ### Compile Source
 
