@@ -25,4 +25,8 @@ jobs:
         env:
           PACKAGECLOUD_TOKEN: ${{ secrets.PACKAGECLOUD_TOKEN }}
         run: |
-          package_cloud push nitrux/testing/debian/trixie *.deb
+<<<<<<< HEAD
+          
+=======
+          
+>>>>>>> 4441b7174437105311e9cab440ba5a587a04544e
