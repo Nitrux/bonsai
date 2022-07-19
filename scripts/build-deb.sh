@@ -1,70 +1,37 @@
-#!/bin/bash
+#! /bin/bash
 
 set -x
 
-### Install Build Tools #1
-
-DEBIAN_FRONTEND=noninteractive apt -qq update
-DEBIAN_FRONTEND=noninteractive apt -qq -yy install --no-install-recommends \
-	appstream \
-	automake \
-	autotools-dev \
-	build-essential \
-	checkinstall \
-	cmake \
-	curl \
-	devscripts \
-	equivs \
-	extra-cmake-modules \
-	gettext \
-	git \
-	gnupg2 \
-	lintian \
-	wget
-
-### Add Neon Sources
+### Update sources
 
 wget -qO /etc/apt/sources.list.d/neon-user-repo.list https://raw.githubusercontent.com/Nitrux/iso-tool/development/configs/files/sources.list.neon.user
+
+wget -qO /etc/apt/sources.list.d/nitrux-main-compat-repo.list https://raw.githubusercontent.com/Nitrux/iso-tool/development/configs/files/sources.list.nitrux
+
+wget -qO /etc/apt/sources.list.d/nitrux-testing-repo.list https://raw.githubusercontent.com/Nitrux/iso-tool/development/configs/files/sources.list.nitrux.testing
 
 DEBIAN_FRONTEND=noninteractive apt-key adv --keyserver keyserver.ubuntu.com --recv-keys \
 	55751E5D > /dev/null
 
+curl -L https://packagecloud.io/nitrux/repo/gpgkey | apt-key add -;
+curl -L https://packagecloud.io/nitrux/compat/gpgkey | apt-key add -;
 curl -L https://packagecloud.io/nitrux/testing/gpgkey | apt-key add -;
-
-wget -qO /etc/apt/sources.list.d/nitrux-testing-repo.list https://raw.githubusercontent.com/Nitrux/iso-tool/development/configs/files/sources.list.nitrux.testing
 
 DEBIAN_FRONTEND=noninteractive apt -qq update
 
 ### Install Package Build Dependencies #2
-### Bonsai needs ECM > 5.70
 
 DEBIAN_FRONTEND=noninteractive apt -qq -yy install --no-install-recommends \
-	libgit2-dev \
-	libkf5config-dev \
-	libkf5coreaddons-dev \
-	libkf5i18n-dev \
-	libkf5kio-dev \
-	libkf5notifications-dev \
-	libwayland-dev \
 	mauikit-git \
-	mauikit-filebrowsing-git \
-	qtbase5-dev \
-	qtdeclarative5-dev \
-	qtwayland5 \
-	qtwayland5-dev-tools \
-	qtwayland5-private-dev \
-	qtquickcontrols2-5-dev
+	mauikit-filebrowsing-git
 
-DEBIAN_FRONTEND=noninteractive apt -qq -yy install --only-upgrade \
-	extra-cmake-modules
+### Download Source
 
-### Clone repo.
-
-git clone --single-branch --branch master https://invent.kde.org/maui/bonsai.git
+git clone --depth 1 --branch $MAUIKIT_BRANCH https://invent.kde.org/maui/bonsai.git
 
 ### Compile Source
 
-mkdir -p bonsai/build && cd bonsai/build
+mkdir -p build && cd build
 
 cmake \
 	-DCMAKE_INSTALL_PREFIX=/usr \
@@ -77,12 +44,11 @@ cmake \
 	-DCMAKE_FIND_PACKAGE_NO_PACKAGE_REGISTRY=ON \
 	-DCMAKE_INSTALL_RUNSTATEDIR=/run "-GUnix Makefiles" \
 	-DCMAKE_VERBOSE_MAKEFILE=ON \
-	-DCMAKE_INSTALL_LIBDIR=lib/x86_64-linux-gnu ..
+	-DCMAKE_INSTALL_LIBDIR=lib/x86_64-linux-gnu ../bonsai/
 
-make
+make -j$(nproc)
 
 ### Run checkinstall and Build Debian Package
-### DO NOT USE debuild, screw it
 
 >> description-pak printf "%s\n" \
 	'MauiKit Git repository manager.' \
@@ -97,14 +63,14 @@ checkinstall -D -y \
 	--install=no \
 	--fstrans=yes \
 	--pkgname=bonsai-git \
-	--pkgversion=2.2.0+git+1 \
+	--pkgversion=$PACKAGE_VERSION \
 	--pkgarch=amd64 \
 	--pkgrelease="1" \
 	--pkglicense=LGPL-3 \
 	--pkggroup=utils \
 	--pkgsource=bonsai \
-	--pakdir=../.. \
-	--maintainer=uri_herrera@nxos.org \
+	--pakdir=. \
+	--maintainer=probal31@gmail.com \
 	--provides=bonsai \
 	--requires="libc6,libgcc-s1,libkf5coreaddons5,libkf5i18n5,libqt5core5a,libqt5gui5,libqt5qml5,libqt5quick5,libqt5widgets5,libstdc++6,mauikit-git \(\>= 2.2.0+git+1\),mauikit-filebrowsing-git \(\>= 2.2.0+git+1\)" \
 	--nodoc \

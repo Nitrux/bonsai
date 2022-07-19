@@ -1,4 +1,4 @@
-# Bonsai [![Build Status](https://travis-ci.org/Nitrux/bonsai.svg?branch=main)](https://travis-ci.org/Nitrux/bonsai)
+# Bonsai [![Bonsai Deb](https://github.com/Nitrux/bonsai/actions/workflows/build_deb_amd64.yml/badge.svg)](https://github.com/Nitrux/bonsai/actions/workflows/build_deb_amd64.yml)
 
 Mobile Git repository manager.
 
