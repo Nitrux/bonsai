@@ -1,4 +1,4 @@
-# Bonsai [![Bonsai Deb](https://github.com/Nitrux/bonsai/actions/workflows/build_deb_amd64.yml/badge.svg)](https://github.com/Nitrux/bonsai/actions/workflows/build_deb_amd64.yml)
+# Bonsai
 
 Mobile Git repository manager.
 
