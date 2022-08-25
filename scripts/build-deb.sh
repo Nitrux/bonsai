@@ -29,6 +29,13 @@ DEBIAN_FRONTEND=noninteractive apt -qq -yy install --no-install-recommends \
 
 git clone --depth 1 --branch $BONSAI_BRANCH https://invent.kde.org/maui/bonsai.git
 
+
+### FIX Bonsai .desktop launcher
+### See bug https://invent.kde.org/maui/bonsai/-/issues/1
+
+sed -i 's+MimeType=inode/directory;+MimeType=x-scheme-handler/x-github-client;x-scheme-handler/x-github-desktop-auth;x-scheme-handler/x-github-desktop-dev-auth;+g' bonsai/org.maui.bonsai.desktop
+
+
 ### Compile Source
 
 mkdir -p build && cd build
