@@ -28,7 +28,7 @@ git clone --depth 1 --branch $BONSAI_BRANCH https://invent.kde.org/maui/bonsai.g
 ### FIX Bonsai .desktop launcher
 ### See bug https://invent.kde.org/maui/bonsai/-/issues/1
 
-sed -i 's+MimeType=inode/directory;+MimeType=x-scheme-handler/x-github-client;x-scheme-handler/x-github-desktop-auth;x-scheme-handler/x-github-desktop-dev-auth;+g' bonsai/org.maui.bonsai.desktop
+sed -i 's+MimeType=inode/directory;+MimeType=x-scheme-handler/x-github-client;x-scheme-handler/x-github-desktop-auth;x-scheme-handler/x-github-desktop-dev-auth;+g' bonsai/org.kde.bonsai.desktop
 
 
 ### Compile Source
