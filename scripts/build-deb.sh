@@ -18,7 +18,9 @@ apt -qq update
 
 apt -qq -yy install --no-install-recommends \
 	mauikit-git \
-	mauikit-filebrowsing-git
+	mauikit-filebrowsing-git \
+	mauikit-terminal-git \
+	mauikit-texteditor-git
 
 ### Download Source
 
@@ -76,7 +78,7 @@ checkinstall -D -y \
 	--pakdir=. \
 	--maintainer=probal31@gmail.com \
 	--provides=bonsai \
-	--requires="libc6,libgcc-s1,libgit2-1.1,libkf5coreaddons5,libkf5i18n5,libqt5core5a,libqt5gui5,libqt5qml5,libqt5quick5,libqt5widgets5,libstdc++6,mauikit-git \(\>= 3.0.1+git\),mauikit-filebrowsing-git \(\>= 3.0.1+git\),,mauikit-texteditor-git \(\>= 3.0.1+git\)" \
+	--requires="libc6,libgcc-s1,libgit2-1.1,libkf5coreaddons5,libkf5i18n5,libqt5core5a,libqt5gui5,libqt5qml5,libqt5quick5,libqt5widgets5,libstdc++6,mauikit-git \(\>= 3.0.1+git\),mauikit-filebrowsing-git \(\>= 3.0.1+git\),mauikit-terminal-git \(\>= 3.0.1+git\),mauikit-texteditor-git \(\>= 3.0.1+git\)" \
 	--nodoc \
 	--strip=no \
 	--stripso=yes \
