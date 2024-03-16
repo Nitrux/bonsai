@@ -68,7 +68,7 @@ AppDir:
     - qml-module-qtquick-shapes
 
     exclude:
-    - [*]
+    - (*)
 
   files:
     include:
