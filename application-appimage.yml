@@ -1,0 +1,94 @@
+# appimage-builder recipe see https://appimage-builder.readthedocs.io for details
+version: 1
+
+script:
+  - rm -rf ./AppDir || true
+  - export DESTDIR=$PWD/AppDir
+  - scripts/install-build-deps.sh
+  - mkdir -p build
+  - cd build
+  - ../scripts/deploy-mauiman.sh
+  - ../scripts/deploy-mauikit.sh
+  - ../scripts/deploy-mauikit-calendar.sh
+  - ../scripts/deploy-agenda.sh
+
+AppDir:
+  path: ./AppDir
+  app_info:
+    id: agenda
+    name: Agenda
+    icon: agenda
+    version: git
+    exec: usr/bin/agenda
+    exec_args: $@
+  runtime:
+    env:
+      PATH: '${APPDIR}/usr/bin:${APPDIR}/bin:${APPDIR}/usr/lib/x86_64-linux-gnu/libexec/kf5:${PATH}'
+      # APPDIR_LIBRARY_PATH: "$APPDIR/lib/x86_64-linux-gnu:$APPDIR/usr/lib:$APPDIR/usr/lib/x86_64-linux-gnu"
+      QT_QUICK_CONTROLS_STYLE: "maui-style"
+  after_bundle:
+    - cd $APPDIR/bin/ && ln -sf bash sh && cd -
+  apt:
+    arch:
+    - amd64
+    allow_unauthenticated: true
+    sources:
+    - sourceline: deb http://archive.ubuntu.com/ubuntu/ noble main restricted universe multiverse
+      key_url: 'http://keyserver.ubuntu.com/pks/lookup?op=get&search=0x3B4FE6ACC0B21F32'
+    - sourceline: deb https://packagecloud.io/nitrux/depot/debian/ trixie main
+      key_url: 'https://packagecloud.io/nitrux/depot/gpgkey'
+    - sourceline: deb https://packagecloud.io/nitrux/testing/debian/ trixie main
+      key_url: 'https://packagecloud.io/nitrux/testing/gpgkey'
+
+    include:
+    # CORE DEPENDENCIES
+    - bash
+
+    # TARGET DEPENDENCIES
+    # ⚠ WARNING: DO NOT ADD libc6 AND libstdc++6 TO THIS LIST!
+    - libgit2-1.7
+
+    # KF5 DEPENDENCIES
+    - libkf5coreaddons5
+    - libkf5i18n5 
+
+    # QT5 DEPENDENCIES
+    - libqt5core5a
+    - libqt5gui5
+    - libqt5qml5
+    - libqt5quick5
+    - libqt5sql5
+    - libqt5widgets5
+
+    # QML DEPENDENCIES
+    - qml-module-org-kde-kirigami2
+    - qml-module-qtquick-controls2
+    - qml-module-qtquick-shapes
+
+    exclude:
+    - [*]
+
+  files:
+    include:
+    - /usr/bin/which
+    exclude:
+    - usr/include
+    - usr/share/man
+    - usr/share/doc
+    - usr/share/doc/*/README.*
+    - usr/share/doc/*/changelog.*
+    - usr/share/doc/*/NEWS.*
+    - usr/share/doc/*/TODO.*
+    - lib/systemd
+    - etc/systemd
+    - usr/lib/systemd
+    - usr/bin/systemd*
+    - usr/bin/dpkg*
+    - usr/bin/*-linux-gnu-*
+    - usr/share/locale
+
+AppImage:
+  arch: x86_64
+  comp: xz
+  file_name: agenda-git-x86_64.AppImage
+  update-information: gh-releases-zsync|Nitrux|agenda|git|*x86_64.AppImage.zsync
