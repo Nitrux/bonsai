@@ -9,17 +9,19 @@ script:
   - cd build
   - ../scripts/deploy-mauiman.sh
   - ../scripts/deploy-mauikit.sh
-  - ../scripts/deploy-mauikit-calendar.sh
-  - ../scripts/deploy-agenda.sh
+  - ../scripts/deploy-mauikit-filebrowsing.sh
+  - ../scripts/deploy-mauikit-texteditor.sh
+  - ../scripts/deploy-mauikit-terminal.sh
+  - ../scripts/deploy-bonsai.sh
 
 AppDir:
   path: ./AppDir
   app_info:
-    id: agenda
-    name: Agenda
-    icon: agenda
+    id: bonsai
+    name: Bonsai
+    icon: bonsai
     version: git
-    exec: usr/bin/agenda
+    exec: usr/bin/bonsai
     exec_args: $@
   runtime:
     env:
@@ -90,5 +92,5 @@ AppDir:
 AppImage:
   arch: x86_64
   comp: xz
-  file_name: agenda-git-x86_64.AppImage
-  update-information: gh-releases-zsync|Nitrux|agenda|git|*x86_64.AppImage.zsync
+  file_name: bonsai-git-x86_64.AppImage
+  update-information: gh-releases-zsync|Nitrux|bonsai|git|*x86_64.AppImage.zsync
