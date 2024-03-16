@@ -2,7 +2,7 @@
 
 MAUIKIT_TERMINAL_VERSION=$([ -z $BRANCH_MAUIKIT_TERMINAL ] && echo "master" || echo $BRANCH_MAUIKIT_TERMINAL)
 
-echo "Cloning Mauikit Calendar from branch $MAUIKIT_TERMINAL_VERSION"
+echo "Cloning Mauikit Terminal from branch $MAUIKIT_TERMINAL_VERSION"
 
 git clone https://invent.kde.org/maui/mauikit-terminal.git --depth=1 -b $MAUIKIT_TERMINAL_VERSION
 

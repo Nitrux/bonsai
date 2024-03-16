@@ -26,7 +26,6 @@ $APT_COMMAND install -qy --no-install-recommends \
     libwayland-dev \
     lintian
 
-
 # Common Qt build headers.
 $APT_COMMAND install -qy --no-install-recommends \
     libqt5svg5-dev \
@@ -39,19 +38,17 @@ $APT_COMMAND install -qy --no-install-recommends \
     qtwayland5-dev-tools \
     qtwayland5-private-dev
 
+# Common KF5 headers.
+    libkf5i18n-dev \
+    libkf5coreaddons-dev
 
 # Build dependencies for MauiMan.
 $APT_COMMAND install -qy --no-install-recommends \
     qtsystems5-dev
 
-
 # Build dependencies for MauiKit.
 $APT_COMMAND install -qy --no-install-recommends \
-    libkf5i18n-dev \
-    libkf5kio-dev \
-    libkf5notifications-dev \
     libkf5solid-dev \
-    libkf5syntaxhighlighting-dev \
     libxcb-icccm4-dev \
     libxcb-shape0-dev \
     nlohmann-json3-dev \
@@ -59,27 +56,21 @@ $APT_COMMAND install -qy --no-install-recommends \
     qml-module-qtquick-controls2 \
     qml-module-qtquick-shapes
 
-
-# Build dependencies for MauiKit Calendar.
+# Build dependencies for MauiKit FileBrowsing.
 $APT_COMMAND install -qy --no-install-recommends \
-    libkf5akonadi-dev \
-    libkf5akonadicontact-dev \
-    libkf5akonadimime-dev \
-    libkf5calendarsupport-dev \
-    libkf5config-dev \
-    libkf5coreaddons-dev \
-    libkf5eventviews-dev \
-    libkf5i18n-dev \
-    libkf5kio-dev \
+    libkf5kio-dev
 
-
-# Build dependencies for Agenda.
+# Build dependencies for MauiKit Terminal.
 $APT_COMMAND install -qy --no-install-recommends \
-    libkf5akonadi-dev \
-    libkf5akonadicontact-dev \
-    libkf5calendarsupport-dev \
     libkf5config-dev \
-    libkf5coreaddons-dev \
-    libkf5eventviews-dev \
-    libkf5i18n-dev \
-    libkf5kio-dev 
+    libkf5pty-dev \
+    libkf5notifications-dev \
+    libkf5service-dev 
+
+# Build dependencies for MauiKit TextEditor.
+$APT_COMMAND install -qy --no-install-recommends \
+    libkf5syntaxhighlighting-dev 
+
+# Build dependencies for Bonsai.
+$APT_COMMAND install -qy --no-install-recommends \
+    libgit2-dev
