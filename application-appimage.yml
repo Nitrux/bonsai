@@ -68,7 +68,7 @@ AppDir:
     - libxcb-xfixes0
     - libxcb-xinerama0
     - libxcb-xinput0
-    - libxcb-xk
+    - libxcb-xkb1
 
     # KF5 DEPENDENCIES
     - libkf5coreaddons5
