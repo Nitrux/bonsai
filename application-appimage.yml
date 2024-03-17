@@ -50,6 +50,10 @@ AppDir:
     # ⚠ WARNING: DO NOT ADD libc6 AND libstdc++6 TO THIS LIST!
     - libgit2-1.7
     - libicu74
+    - libgl1
+    - libgl1-mesa-glx
+    - libgl1-mesa-dri
+    - libglu1-mesa
 
     # KF5 DEPENDENCIES
     - libkf5coreaddons5
