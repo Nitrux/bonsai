@@ -53,7 +53,6 @@ AppDir:
     - libgl1
     - libgl1-mesa-glx
     - libgl1-mesa-dri
-    - libglu1-mesa
 
     # KF5 DEPENDENCIES
     - libkf5coreaddons5
