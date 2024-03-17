@@ -50,6 +50,25 @@ AppDir:
     # ⚠ WARNING: DO NOT ADD libc6 AND libstdc++6 TO THIS LIST!
     - libgit2-1.7
     - libicu74
+    - libxcb-dri2-0
+    - libxcb-dri3-0
+    - libxcb-glx0
+    - libxcb-icccm4
+    - libxcb-image0
+    - libxcb-keysyms1
+    - libxcb-present0
+    - libxcb-randr0
+    - libxcb-render-util0
+    - libxcb-render0
+    - libxcb-res0
+    - libxcb-shape0
+    - libxcb-shm0
+    - libxcb-sync1
+    - libxcb-util1
+    - libxcb-xfixes0
+    - libxcb-xinerama0
+    - libxcb-xinput0
+    - libxcb-xk
 
     # KF5 DEPENDENCIES
     - libkf5coreaddons5
