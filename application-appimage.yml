@@ -75,6 +75,8 @@ AppDir:
     - qml-module-org-kde-kirigami2
     - qml-module-qtquick-controls2
     - qml-module-qtquick-shapes
+    - qml-module-qt-labs-settings
+    - qml-module-qtgraphicaleffects
 
     exclude:
     - dbus
