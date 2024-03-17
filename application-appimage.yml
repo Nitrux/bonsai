@@ -54,6 +54,13 @@ AppDir:
     # KF5 DEPENDENCIES
     - libkf5coreaddons5
     - libkf5i18n5
+    - libkf5widgetsaddons5
+    - libkf5windowsystem5
+    - libkf5xmlgui5
+    - libkf5iconthemes5
+    - libkf5itemmodels5
+    - libkf5jobwidgets5
+    - libkf5kiocore5
 
     # QT5 DEPENDENCIES
     - libqt5core5a
