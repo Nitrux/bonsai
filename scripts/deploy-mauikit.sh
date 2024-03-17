@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
-MAUIKIT_VERSION=$([ -z $BRANCH_MAUIKIT ] && echo "master" || echo $BRANCH_MAUIKIT)
+MAUIKIT_VERSION=$([ -z $BRANCH_MAUIKIT ] && echo "v3.1.0" || echo $BRANCH_MAUIKIT)
 
 echo "Cloning Mauikit from branch $MAUIKIT_VERSION"
 
-git clone https://invent.kde.org/maui/mauikit.git --depth=1 -b $MAUIKIT_VERSION
+git clone --depth 1 --branch $MAUIKIT_VERSION https://invent.kde.org/maui/mauikit.git
 
 cd mauikit
 cmake -DCMAKE_BUILD_TYPE="Release" \

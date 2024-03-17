@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-BONSAI_VERSION=$([ -z $BRANCH_BONSAI ] && echo "master" || echo $BRANCH_BONSAI)
+BONSAI_VERSION=$([ -z $BRANCH_BONSAI ] && echo "v1.1.3" || echo $BRANCH_BONSAI)
 
 echo "Cloning Bonsai from branch/tag $BONSAI_VERSION"
 

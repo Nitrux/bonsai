@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
-MAUIKIT_FILEBROWSING_VERSION=$([ -z $BRANCH_MAUIKIT_FILEBROWSING ] && echo "master" || echo $BRANCH_MAUIKIT_FILEBROWSING)
+MAUIKIT_FILEBROWSING_VERSION=$([ -z $BRANCH_MAUIKIT_FILEBROWSING ] && echo "v3.1.0" || echo $BRANCH_MAUIKIT_FILEBROWSING)
 
 echo "Cloning Mauikit FileBrowsing from branch $MAUIKIT_FILEBROWSING_VERSION"
 
-git clone https://invent.kde.org/maui/mauikit-filebrowsing.git --depth=1 -b $MAUIKIT_FILEBROWSING_VERSION
+git clone --depth 1 --branch $MAUIKIT_FILEBROWSING_VERSION https://invent.kde.org/maui/mauikit-filebrowsing.git
 
 cd mauikit-filebrowsing
 mkdir -p build
