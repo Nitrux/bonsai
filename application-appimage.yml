@@ -70,6 +70,7 @@ AppDir:
     - libqt5sql5
     - libqt5widgets5
     - libqt5waylandclient5
+    - libqt5concurrent5
 
     # QML DEPENDENCIES
     - qml-module-org-kde-kirigami2
