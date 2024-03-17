@@ -51,7 +51,6 @@ AppDir:
     - libgit2-1.7
     - libicu74
     - libgl1
-    - libgl1-mesa-glx
     - libgl1-mesa-dri
 
     # KF5 DEPENDENCIES
