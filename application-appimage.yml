@@ -53,7 +53,7 @@ AppDir:
 
     # KF5 DEPENDENCIES
     - libkf5coreaddons5
-    - libkf5i18n5 
+    - libkf5i18n5
 
     # QT5 DEPENDENCIES
     - libqt5core5a
@@ -62,6 +62,7 @@ AppDir:
     - libqt5quick5
     - libqt5sql5
     - libqt5widgets5
+    - libqt5waylandclient5
 
     # QML DEPENDENCIES
     - qml-module-org-kde-kirigami2
