@@ -81,7 +81,8 @@ AppDir:
     - qml-module-org-kde-sonnet
 
     exclude:
-    - "*"
+    - libc6
+    - libstdc++6
 
   files:
     include:
