@@ -49,6 +49,7 @@ AppDir:
     # TARGET DEPENDENCIES
     # ⚠ WARNING: DO NOT ADD libc6 AND libstdc++6 TO THIS LIST!
     - libgit2-1.7
+    - libicu74
 
     # KF5 DEPENDENCIES
     - libkf5coreaddons5
