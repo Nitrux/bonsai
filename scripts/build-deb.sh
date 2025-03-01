@@ -78,7 +78,7 @@ checkinstall -D -y \
 	--pakdir=. \
 	--maintainer=uri_herrera@nxos.org \
 	--provides=bonsai \
-	--requires="libc6,libgit2-1.8,mauikit-git \(\>= 4.0.1\),mauikit-filebrowsing-git \(\>= 4.0.1\),mauikit-terminal-git \(\>= 4.0.1\),mauikit-texteditor-git \(\>= 4.0.1\)" \
+	--requires="libgit2-1.8,mauikit-filebrowsing-git \(\>= 4.0.1\),mauikit-git \(\>= 4.0.1\),mauikit-terminal-git \(\>= 4.0.1\),mauikit-texteditor-git \(\>= 4.0.1\),qml6-module-qtcore" \
 	--nodoc \
 	--strip=no \
 	--stripso=yes \
